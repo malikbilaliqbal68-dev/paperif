@@ -414,14 +414,20 @@
             <input type="checkbox" id="includeShort" checked onchange="updateTotals()">
             <span class="text-lg font-bold">Short Questions</span>
           </div>
-          <div class="relative">
-            <button class="px-3 py-1 text-xs font-bold border rounded bg-white hover:bg-gray-50 transition"
-              id="shortModeBtn" onclick="toggleModeMenu('short')">Random ▾</button>
-            <div class="hidden absolute right-0 mt-1 bg-white border rounded shadow-lg z-50 w-24" id="shortModeMenu">
-              <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
-                onclick="setSectionMode('short','random')">Random</button>
-              <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
-                onclick="setSectionMode('short','pick')">Pick…</button>
+          <div class="flex items-center gap-2">
+            <button class="px-3 py-1 text-xs font-bold border rounded bg-green-500 text-white hover:bg-green-600 transition"
+              onclick="openAddQuestionModal('short')" title="Add Custom Question">
+              <i class="fa fa-plus"></i> Add
+            </button>
+            <div class="relative">
+              <button class="px-3 py-1 text-xs font-bold border rounded bg-white hover:bg-gray-50 transition"
+                id="shortModeBtn" onclick="toggleModeMenu('short')">Random ▾</button>
+              <div class="hidden absolute right-0 mt-1 bg-white border rounded shadow-lg z-50 w-24" id="shortModeMenu">
+                <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
+                  onclick="setSectionMode('short','random')">Random</button>
+                <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
+                  onclick="setSectionMode('short','pick')">Pick…</button>
+              </div>
             </div>
           </div>
         </label>
@@ -441,14 +447,20 @@
             <input type="checkbox" id="includeLong" checked onchange="updateTotals()">
             <span class="text-lg font-bold">Long Questions</span>
           </div>
-          <div class="relative">
-            <button class="px-3 py-1 text-xs font-bold border rounded bg-white hover:bg-gray-50 transition"
-              id="longModeBtn" onclick="toggleModeMenu('long')">Random ▾</button>
-            <div class="hidden absolute right-0 mt-1 bg-white border rounded shadow-lg z-50 w-24" id="longModeMenu">
-              <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
-                onclick="setSectionMode('long','random')">Random</button>
-              <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
-                onclick="setSectionMode('long','pick')">Pick…</button>
+          <div class="flex items-center gap-2">
+            <button class="px-3 py-1 text-xs font-bold border rounded bg-green-500 text-white hover:bg-green-600 transition"
+              onclick="openAddQuestionModal('long')" title="Add Custom Question">
+              <i class="fa fa-plus"></i> Add
+            </button>
+            <div class="relative">
+              <button class="px-3 py-1 text-xs font-bold border rounded bg-white hover:bg-gray-50 transition"
+                id="longModeBtn" onclick="toggleModeMenu('long')">Random ▾</button>
+              <div class="hidden absolute right-0 mt-1 bg-white border rounded shadow-lg z-50 w-24" id="longModeMenu">
+                <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
+                  onclick="setSectionMode('long','random')">Random</button>
+                <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
+                  onclick="setSectionMode('long','pick')">Pick…</button>
+              </div>
             </div>
           </div>
         </label>
@@ -509,6 +521,60 @@
         </div>
       </div>
 
+      <!-- Urdu Prose Questions (Nasar) -->
+      <div class="section-card hidden" id="proseSection">
+        <label class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="includeProse" onchange="updateTotals()">
+            <span class="text-lg font-bold">Prose Questions (Nasar)</span>
+          </div>
+          <div class="relative">
+            <button class="px-3 py-1 text-xs font-bold border rounded bg-white hover:bg-gray-50 transition"
+              id="proseModeBtn" onclick="toggleModeMenu('prose')">Random ▾</button>
+            <div class="hidden absolute right-0 mt-1 bg-white border rounded shadow-lg z-50 w-24" id="proseModeMenu">
+              <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
+                onclick="setSectionMode('prose','random')">Random</button>
+              <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
+                onclick="setSectionMode('prose','pick')">Pick…</button>
+            </div>
+          </div>
+        </label>
+        <div class="grid grid-cols-2 gap-4">
+          <input type="number" id="proseCount" value="1" oninput="updateTotals()" class="modern-input">
+          <input type="number" id="proseMarks" value="8" oninput="updateTotals()" class="modern-input">
+        </div>
+      </div>
+
+      <!-- Urdu Poem Questions (Nazm) -->
+      <div class="section-card hidden" id="poemSection">
+        <label class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="includePoem" onchange="updateTotals()">
+            <span class="text-lg font-bold">Poem Questions (Nazm)</span>
+          </div>
+          <div class="relative">
+            <button class="px-3 py-1 text-xs font-bold border rounded bg-white hover:bg-gray-50 transition"
+              id="poemModeBtn" onclick="toggleModeMenu('poem')">Random ▾</button>
+            <div class="hidden absolute right-0 mt-1 bg-white border rounded shadow-lg z-50 w-24" id="poemModeMenu">
+              <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
+                onclick="setSectionMode('poem','random')">Random</button>
+              <button class="block px-4 py-2 text-sm w-full text-left hover:bg-gray-100"
+                onclick="setSectionMode('poem','pick')">Pick…</button>
+            </div>
+          </div>
+        </label>
+        <div class="grid grid-cols-2 gap-4">
+          <input type="number" id="poemCount" value="1" oninput="updateTotals()" class="modern-input">
+          <input type="number" id="poemMarks" value="8" oninput="updateTotals()" class="modern-input">
+        </div>
+      </div>
+
+      <!-- Urdu Grammar Section -->
+      <div id="urduGrammarSection" class="hidden mt-8 pt-8 border-t-4 border-gray-100">
+        <h3 class="text-2xl font-black mb-6 text-[#3f3a64]">Urdu Grammar</h3>
+        <div id="grammarItemsList" class="space-y-4"></div>
+      </div>
+
       <div class="section-card hidden" id="theoremSection">
         <label class="flex items-center justify-between mb-4">
           <div class="flex items-center gap-3">
@@ -550,6 +616,49 @@
     </div>
   </main>
 
+  <!-- Add Question Modal -->
+  <div id="addQuestionModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[100]">
+    <div class="bg-white w-[min(600px,95%)] rounded-2xl flex flex-col max-h-[85vh]">
+      <div class="px-4 py-3 bg-[#f8f1eb] flex items-center justify-between border-b">
+        <div class="font-extrabold" id="addQuestionTitle">Add Custom Question</div>
+        <button class="px-3 py-1 rounded-md border bg-white" onclick="closeAddQuestionModal()">Close</button>
+      </div>
+      <div class="p-6 overflow-y-auto flex-1">
+        <div class="space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="block font-bold">Question (English)</label>
+              <button type="button" class="px-2 py-1 text-xs border rounded bg-white" onclick="startVoiceInput('customQuestionEn','en-US')">Voice</button>
+            </div>
+            <textarea id="customQuestionEn" class="w-full p-3 border rounded-lg" rows="3" placeholder="Enter question in English"></textarea>
+          </div>
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <label class="block font-bold">Question (Urdu) - Optional</label>
+              <div class="flex items-center gap-2">
+                <button type="button" class="px-2 py-1 text-xs border rounded bg-white" onclick="translateEnglishToUrdu(true)">Auto Urdu</button>
+                <button type="button" class="px-2 py-1 text-xs border rounded bg-white" onclick="startVoiceInput('customQuestionUr','ur-PK')">Voice</button>
+              </div>
+            </div>
+            <textarea id="customQuestionUr" class="w-full p-3 border rounded-lg urdu-text" rows="3" placeholder="سوال اردو میں درج کریں" dir="rtl"></textarea>
+            <p class="text-xs text-gray-500 mt-1">Auto-translation will be attempted if chapter supports both languages</p>
+          </div>
+          <div id="mcqOptionsDiv" class="hidden">
+            <label class="block font-bold mb-2">MCQ Options (4 required)</label>
+            <input type="text" id="mcqOpt1" class="w-full p-2 border rounded mb-2" placeholder="Option 1">
+            <input type="text" id="mcqOpt2" class="w-full p-2 border rounded mb-2" placeholder="Option 2">
+            <input type="text" id="mcqOpt3" class="w-full p-2 border rounded mb-2" placeholder="Option 3">
+            <input type="text" id="mcqOpt4" class="w-full p-2 border rounded mb-2" placeholder="Option 4">
+          </div>
+        </div>
+      </div>
+      <div class="px-4 py-3 border-t bg-white flex justify-end gap-2">
+        <button class="px-6 py-2 rounded-lg bg-gray-300 text-gray-700 font-bold" onclick="closeAddQuestionModal()">Cancel</button>
+        <button class="px-6 py-2 rounded-lg bg-[#19c880] text-white font-bold" onclick="saveCustomQuestion()">Save Question</button>
+      </div>
+    </div>
+  </div>
+
   <div id="pickerModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[100]">
     <div class="bg-white w-[min(900px,95%)] rounded-2xl flex flex-col max-h-[85vh]">
       <div class="px-4 py-3 bg-[#f8f1eb] flex items-center justify-between border-b">
@@ -558,8 +667,10 @@
             Back</button>
           <div class="font-extrabold" id="pickerTitle">Pick Questions</div>
         </div>
-        <div class="flex gap-2">
-          <button id="addQuestionBtn" class="px-3 py-1 rounded-md border bg-green-600 text-white hover:bg-green-700" onclick="openAddQuestionModal()">+ Add Question</button>
+        <div class="flex items-center gap-2">
+          <button id="pickerAddBtn" class="hidden px-3 py-1 rounded-md border bg-white font-bold text-green-700" onclick="openAddQuestionFromPicker()">
+            <i class="fa-solid fa-plus mr-1"></i>Add
+          </button>
           <button class="px-3 py-1 rounded-md border bg-white" onclick="closePicker()">Close</button>
         </div>
       </div>
@@ -567,45 +678,6 @@
       <div class="px-4 py-3 border-t bg-white flex justify-end gap-2">
         <button class="px-6 py-2 rounded-lg bg-[#19c880] text-white font-bold" onclick="closePicker()">Apply
           Selection</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add Question Modal -->
-  <div id="addQuestionModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-[110]">
-    <div class="bg-white w-[min(600px,90%)] rounded-2xl flex flex-col max-h-[80vh]">
-      <div class="px-6 py-4 bg-[#f8f1eb] flex items-center justify-between border-b">
-        <div class="font-extrabold text-lg">Add Custom Question</div>
-        <button class="px-3 py-1 rounded-md border bg-white" onclick="closeAddQuestionModal()">✕</button>
-      </div>
-      <div class="p-6 overflow-y-auto flex-1">
-        <div class="space-y-4">
-          <div>
-            <label class="block text-sm font-bold mb-2">Question Type</label>
-            <select id="customQuestionType" class="w-full px-4 py-2 border rounded-lg">
-              <option value="short">Short Question</option>
-              <option value="long">Long Question</option>
-              <option value="mcq">MCQ</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm font-bold mb-2">Question Text (English)</label>
-            <textarea id="customQuestionText" rows="3" class="w-full px-4 py-2 border rounded-lg" placeholder="Enter your question in English..."></textarea>
-          </div>
-          <div>
-            <label class="block text-sm font-bold mb-2">Question Text (Urdu) - Optional</label>
-            <textarea id="customQuestionTextUrdu" rows="3" class="w-full px-4 py-2 border rounded-lg urdu-text" placeholder="اردو میں سوال درج کریں (اختیاری)..."></textarea>
-          </div>
-          <div class="bg-blue-50 p-4 rounded-lg">
-            <p class="text-sm text-blue-800">
-              <strong>Note:</strong> If this chapter has bilingual support, the Urdu field will be saved. Leave it empty if you want to add translation later.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="px-6 py-4 border-t bg-white flex justify-end gap-2">
-        <button class="px-6 py-2 rounded-lg border" onclick="closeAddQuestionModal()">Cancel</button>
-        <button class="px-6 py-2 rounded-lg bg-[#19c880] text-white font-bold" onclick="saveCustomQuestion()">Add Question</button>
       </div>
     </div>
   </div>
@@ -624,39 +696,53 @@
       verb: { mode: 'random', picked: [] },
       underline: { mode: 'random', picked: [] },
       paragraph: { mode: 'random', picked: [] },
-      rtc: { mode: 'random', picked: [] }
+      rtc: { mode: 'random', picked: [] },
+      prose: { mode: 'random', picked: [] },
+      poem: { mode: 'random', picked: [] }
     };
     const pools = {
       mcqs: [], short: [], long: [], theorem: [],
-      verb: [], underline: [], paragraph: [], rtc: []
+      verb: [], underline: [], paragraph: [], rtc: [],
+      prose: [], poem: [], grammar: {}
     };
 
     let pickerHistory = [];
+    let currentQuestionType = '';
+    let currentPickerType = '';
+    let chapterLanguageSupport = { hasEnglish: false, hasUrdu: false }; // Track chapter language support
 
     const engBMarksMap = {
       'Summaries': 5, 'Letters': 8, 'Stories': 10, 'Applications': 8, 'Comprehension': 10, 'Tenses': 5, 'Review': 5, 'Active_Passive_Voice': 5, 'Dialogues': 5, 'idioms': 5
     };
 
+    // Detect chapter language support
+    function detectChapterLanguage(selections) {
+      try {
+        const sel = JSON.parse(decodeURIComponent(selections || '[]'));
+        if (sel.length > 0) {
+          const firstChapter = sel[0].chapters[0];
+          if (typeof firstChapter === 'object' && firstChapter.title) {
+            chapterLanguageSupport.hasEnglish = !!firstChapter.title.en;
+            chapterLanguageSupport.hasUrdu = !!firstChapter.title.ur;
+          }
+        }
+      } catch (e) {
+        console.error('Error detecting language:', e);
+      }
+    }
+
     async function buildPools() {
       try {
         const selections = JSON.parse(decodeURIComponent(selectionsParam || '[]'));
+        detectChapterLanguage(selectionsParam); // Detect language support
         const res = await fetch(`/api/data/${board}`);
         const syllabus = await res.json();
         const cls = syllabus.find(c => String(c.class) === String(className));
         if (!cls) return;
 
         let showVerb = false, showUnderline = false, showPara = false, showRtc = false, showTheorem = false;
+        let showProse = false, showPoem = false, showGrammar = false;
         let hasEngBData = false;
-
-        // Clear existing pools
-        pools.mcqs = [];
-        pools.short = [];
-        pools.long = [];
-        pools.theorem = [];
-        pools.verb = [];
-        pools.underline = [];
-        pools.paragraph = [];
-        pools.rtc = [];
 
         selections.forEach(sel => {
           const subj = cls.subjects.find(s => s.name.en.toLowerCase() === sel.subject.toLowerCase());
@@ -673,19 +759,61 @@
 
             if (!ch) return;
 
+            // Detect Urdu chapter type
+            if (ch.type === 'nasar' || ch.type === 'prose') {
+              showProse = true;
+              if (ch.prose_questions) {
+                Object.values(ch.prose_questions).flat().forEach(q => {
+                  pools.prose.push({ key: Math.random(), en: q, ur: q });
+                });
+              }
+            }
+            if (ch.type === 'nazm' || ch.type === 'poem') {
+              showPoem = true;
+              if (ch.poem_questions) {
+                Object.values(ch.poem_questions).flat().forEach(q => {
+                  pools.poem.push({ key: Math.random(), en: q, ur: q });
+                });
+              }
+            }
+
             const addFromSource = (src) => {
               const mcqSource = src.mcqs || src.mcq_pick_questions;
               if (mcqSource) mcqSource.forEach(q => pools.mcqs.push({ key: Math.random(), en: q.question || q.en || "", ur: q.question_ur || q.ur || "", options: q.options || [], options_ur: q.options_ur || [] }));
 
               if (src.mcq_form_of_verb) { showVerb = true; src.mcq_form_of_verb.forEach(q => pools.verb.push({ key: Math.random(), en: q.question || q.en || "", ur: "", options: q.options || [], options_ur: [] })); }
               if (src.mcq_underlined_words) { showUnderline = true; src.mcq_underlined_words.forEach(q => pools.underline.push({ key: Math.random(), en: q.sentence || q.en || "", ur: "", options: q.options || [], options_ur: [] })); }
-              const sEn = src.short_questions || []; const sUr = src.short_questions_ur || []; for (let i = 0; i < Math.max(sEn.length, sUr.length); i++) pools.short.push({ key: Math.random(), en: sEn[i] || "", ur: sUr[i] || "" });
-              const lEn = src.long_questions || []; const lUr = src.long_questions_ur || []; for (let i = 0; i < Math.max(lEn.length, lUr.length); i++) pools.long.push({ key: Math.random(), en: lEn[i] || "", ur: lUr[i] || "" });
-              // FIXED: Include both comprehension paragraphs (Chapter Level) AND translate_to_urdu in paragraph pool
+              
+              // FIXED: Handle both array and string formats for short/long questions
+              const sEn = src.short_questions || [];
+              const sUr = src.short_questions_ur || [];
+              
+              // If short_questions is array of strings, convert to proper format
+              if (Array.isArray(sEn)) {
+                for (let i = 0; i < sEn.length; i++) {
+                  const qEn = typeof sEn[i] === 'string' ? sEn[i] : (sEn[i]?.en || sEn[i]?.question || "");
+                  const qUr = sUr[i] || "";
+                  if (qEn) pools.short.push({ key: Math.random(), en: qEn, ur: qUr });
+                }
+              }
+              
+              const lEn = src.long_questions || [];
+              const lUr = src.long_questions_ur || [];
+              
+              // If long_questions is array of strings, convert to proper format
+              if (Array.isArray(lEn)) {
+                for (let i = 0; i < lEn.length; i++) {
+                  const qEn = typeof lEn[i] === 'string' ? lEn[i] : (lEn[i]?.en || lEn[i]?.question || "");
+                  const qUr = lUr[i] || "";
+                  if (qEn) pools.long.push({ key: Math.random(), en: qEn, ur: qUr });
+                }
+              }
+              
+              // Handle paragraphs (prose/nasar), poems (nazam), and comprehension
               if (src.paragraphs && Array.isArray(src.paragraphs)) {
                 showPara = true;
                 src.paragraphs.forEach(p => {
-                  const paraObj = {
+                  pools.paragraph.push({
                     key: Math.random(),
                     en: p.title || p.en || "",
                     ur: p.ur || "",
@@ -693,11 +821,42 @@
                     questions: p.questions || [],
                     questions_ur: p.questions_ur || [],
                     isParagraph: true
-                  };
-                  console.log('PARAGRAPH POOL: Adding paragraph:', paraObj.en, 'with', paraObj.questions.length, 'questions', paraObj.questions);
-                  pools.paragraph.push(paraObj);
+                  });
                 });
               }
+              
+              // Handle paragraphs_for_explanation (Urdu Nasar)
+              if (src.paragraphs_for_explanation && Array.isArray(src.paragraphs_for_explanation)) {
+                showPara = true;
+                src.paragraphs_for_explanation.forEach(p => {
+                  pools.paragraph.push({
+                    key: Math.random(),
+                    en: p.title || `Para ${p.para_no || ''}`,
+                    ur: p.title_ur || `پیرا ${p.para_no || ''}`,
+                    fullContent: p.content || p.text || "",
+                    questions: [],
+                    questions_ur: [],
+                    isParagraph: true
+                  });
+                });
+              }
+              
+              // Handle poems_for_explanation (Urdu Nazam)
+              if (src.poems_for_explanation && Array.isArray(src.poems_for_explanation)) {
+                showPara = true;
+                src.poems_for_explanation.forEach(p => {
+                  pools.paragraph.push({
+                    key: Math.random(),
+                    en: p.title || `Poem ${p.poem_no || ''}`,
+                    ur: p.title_ur || `نظم ${p.poem_no || ''}`,
+                    fullContent: p.content || p.text || "",
+                    questions: [],
+                    questions_ur: [],
+                    isParagraph: true
+                  });
+                });
+              }
+              
               if (src.translate_to_urdu) { showPara = true; src.translate_to_urdu.forEach(q => pools.paragraph.push({ key: Math.random(), en: q.text || "", ur: "Translation Paragraph" })); }
               if (src.reference_to_context) { showRtc = true; src.reference_to_context.forEach(q => pools.rtc.push({ key: Math.random(), en: q.text || "", ur: "Reference Text" })); }
               if (src.theorem || src.theorems) { showTheorem = true; const tEn = src.theorem || src.theorems || []; const tUr = src.theorem_ur || src.theorems_ur || []; for (let i = 0; i < Math.max(tEn.length, tUr.length); i++) pools.theorem.push({ key: Math.random(), en: tEn[i] || "", ur: tUr[i] || "" }); }
@@ -777,6 +936,34 @@
               processItem(content);
             });
           }
+
+          // Handle Urdu Grammar
+          if (subj.grammar) {
+            showGrammar = true;
+            pools.grammar = subj.grammar;
+            Object.keys(subj.grammar).forEach(grammarKey => {
+              if (!sectionState[grammarKey]) {
+                sectionState[grammarKey] = { mode: 'pick', picked: [] };
+              }
+              if (!pools[grammarKey]) {
+                pools[grammarKey] = [];
+              }
+              const items = subj.grammar[grammarKey];
+              if (Array.isArray(items)) {
+                items.forEach(item => {
+                  pools[grammarKey].push({ key: Math.random(), en: item, ur: item });
+                });
+              } else if (typeof items === 'object') {
+                Object.entries(items).forEach(([subKey, subItems]) => {
+                  if (Array.isArray(subItems)) {
+                    subItems.forEach(item => {
+                      pools[grammarKey].push({ key: Math.random(), en: `${subKey}: ${item}`, ur: item });
+                    });
+                  }
+                });
+              }
+            });
+          }
         });
 
         if (showVerb) document.getElementById('verbQuestionsSection').classList.remove('hidden');
@@ -784,6 +971,12 @@
         if (showPara) document.getElementById('paragraphSection').classList.remove('hidden');
         if (showRtc) document.getElementById('rtcSection').classList.remove('hidden');
         if (showTheorem) document.getElementById('theoremSection').classList.remove('hidden');
+        if (showProse && pools.prose.length > 0) document.getElementById('proseSection').classList.remove('hidden');
+        if (showPoem && pools.poem.length > 0) document.getElementById('poemSection').classList.remove('hidden');
+        if (showGrammar && Object.keys(pools.grammar || {}).length > 0) {
+          document.getElementById('urduGrammarSection').classList.remove('hidden');
+          renderGrammarUI();
+        }
 
         if (hasEngBData) {
           document.getElementById('englishBSection').classList.remove('hidden');
@@ -796,8 +989,8 @@
 
     function renderEngBUI() {
       const container = document.getElementById('engBItemsList');
-      const standardKeys = ['mcqs', 'short', 'long', 'theorem', 'verb', 'underline', 'paragraph', 'rtc'];
-      const engBKeys = Object.keys(pools).filter(k => !standardKeys.includes(k));
+      const standardKeys = ['mcqs', 'short', 'long', 'theorem', 'verb', 'underline', 'paragraph', 'rtc', 'prose', 'poem'];
+      const engBKeys = Object.keys(pools).filter(k => !standardKeys.includes(k) && k !== 'grammar');
 
       container.innerHTML = engBKeys.map(key => {
         if (pools[key].length === 0) return '';
@@ -813,6 +1006,46 @@
               </div>
             </div>`;
       }).join('');
+    }
+
+    function renderGrammarUI() {
+      const container = document.getElementById('grammarItemsList');
+      const grammarKeys = Object.keys(pools.grammar || {});
+      const grammarLabels = {
+        'letters': 'Letters',
+        'applications': 'Applications',
+        'completing_sentences': 'Complete Sentences',
+        'correctness_of_sentences': 'Sentence Correction',
+        'stories': 'Stories',
+        'dialogues': 'Dialogues',
+        'receipts': 'Receipts',
+        'muhavrat_and_proverbs': 'Idioms & Proverbs',
+        'tashbeeh': 'Simile',
+        'استعارہ': 'Metaphor',
+        'kinaya': 'Metonymy',
+        'مجاز': 'Figurative'
+      };
+
+      container.innerHTML = grammarKeys.map(key => {
+        const itemCount = pools[key]?.length || 0;
+        if (itemCount === 0) return '';
+        return `
+            <div class="flex items-center justify-between p-4 bg-white border rounded-xl hover:shadow-sm transition">
+              <div class="flex items-center gap-4">
+                <input type="checkbox" id="include_${key}" class="eng-b-checkbox" onchange="handleGrammarCheck('${key}', this.checked)">
+                <span class="font-bold text-gray-700 capitalize">${grammarLabels[key] || key.replace(/_/g, ' ')}</span>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-xs font-bold text-gray-400">Items: ${itemCount}</span>
+                <button onclick="openPicker('${key}')" class="text-green-600 font-bold text-sm">Pick Item ▾</button>
+              </div>
+            </div>`;
+      }).join('');
+    }
+
+    function handleGrammarCheck(key, checked) {
+      if (checked && sectionState[key].picked.length === 0) openPicker(key);
+      updateTotals();
     }
 
     function handleEngBCheck(key, checked) {
@@ -839,6 +1072,13 @@
       const list = document.getElementById('pickerList');
       const backBtn = document.getElementById('pickerBackBtn');
       const title = document.getElementById('pickerTitle');
+      const addBtn = document.getElementById('pickerAddBtn');
+      currentPickerType = type;
+      if (['mcqs', 'short', 'long'].includes(type)) {
+        addBtn.classList.remove('hidden');
+      } else {
+        addBtn.classList.add('hidden');
+      }
 
       if (!isSub) {
         pickerHistory = [];
@@ -877,6 +1117,11 @@
 
       document.getElementById('pickerModal').classList.remove('hidden');
       document.getElementById('pickerModal').classList.add('flex');
+    }
+
+    function openAddQuestionFromPicker() {
+      if (!['mcqs', 'short', 'long'].includes(currentPickerType)) return;
+      openAddQuestionModal(currentPickerType);
     }
 
     function enterFolder(type, folderName) {
@@ -951,92 +1196,10 @@
       document.getElementById('pickerModal').classList.remove('flex');
     }
 
-    let currentPickerType = '';
-
-    function openAddQuestionModal() {
-      currentPickerType = document.getElementById('pickerTitle').innerText.replace('Select ', '').replace(' QUESTIONS', '').toLowerCase();
-      document.getElementById('addQuestionModal').classList.remove('hidden');
-      document.getElementById('addQuestionModal').classList.add('flex');
-    }
-
-    function closeAddQuestionModal() {
-      document.getElementById('addQuestionModal').classList.add('hidden');
-      document.getElementById('addQuestionModal').classList.remove('flex');
-      document.getElementById('customQuestionText').value = '';
-      document.getElementById('customQuestionTextUrdu').value = '';
-    }
-
-    async function saveCustomQuestion() {
-      const questionType = document.getElementById('customQuestionType').value;
-      const questionText = document.getElementById('customQuestionText').value.trim();
-      const questionTextUrdu = document.getElementById('customQuestionTextUrdu').value.trim();
-
-      if (!questionText) {
-        alert('Please enter a question!');
-        return;
-      }
-
-      try {
-        const selections = JSON.parse(decodeURIComponent(selectionsParam || '[]'));
-        if (selections.length === 0) {
-          alert('No chapter selected!');
-          return;
-        }
-
-        const firstSelection = selections[0];
-        const chapter = firstSelection.chapters[0];
-        const chapterTitle = typeof chapter === 'string' ? chapter : (chapter.title || chapter);
-
-        const response = await fetch('/api/add-question', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            board: board,
-            className: className,
-            subject: firstSelection.subject,
-            chapter: chapterTitle,
-            questionType: questionType,
-            questionText: questionText,
-            questionTextUrdu: questionTextUrdu
-          })
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-          const msg = questionTextUrdu ? 
-            '✓ Question added with Urdu translation!' : 
-            '✓ Question added! ' + (result.hasBilingualSupport ? '(Urdu field empty - add later if needed)' : '(English only)');
-          alert(msg);
-          closeAddQuestionModal();
-          
-          await buildPools();
-          
-          const titleText = document.getElementById('pickerTitle').innerText.toLowerCase();
-          let typeToOpen = 'short';
-          
-          if (titleText.includes('objective') || titleText.includes('mcq')) {
-            typeToOpen = 'mcqs';
-          } else if (titleText.includes('short')) {
-            typeToOpen = 'short';
-          } else if (titleText.includes('long')) {
-            typeToOpen = 'long';
-          }
-          
-          setTimeout(() => openPicker(typeToOpen), 100);
-        } else {
-          alert('Error: ' + result.error);
-        }
-      } catch (error) {
-        console.error('Error saving question:', error);
-        alert('Failed to save question. Please try again.');
-      }
-    }
-
     function updateTotals() {
       const getVal = (id) => { const el = document.getElementById(id); return el ? (parseInt(el.value) || 0) : 0; };
       let total = 0;
-      ['mcqs', 'verb', 'underline', 'short', 'long', 'paragraph', 'rtc', 'theorem'].forEach(s => {
+      ['mcqs', 'verb', 'underline', 'short', 'long', 'paragraph', 'rtc', 'theorem', 'prose', 'poem'].forEach(s => {
         const includeEl = document.getElementById('include' + s.charAt(0).toUpperCase() + s.slice(1));
         if (includeEl && includeEl.checked) {
           // attempts: for pick mode use picked length, otherwise prefer Attempts input (fallback to Count)
@@ -1047,7 +1210,7 @@
         }
       });
       Object.keys(sectionState).forEach(key => {
-        if (!['mcqs', 'verb', 'underline', 'short', 'long', 'paragraph', 'rtc', 'theorem'].includes(key)) {
+        if (!['mcqs', 'verb', 'underline', 'short', 'long', 'paragraph', 'rtc', 'theorem', 'prose', 'poem'].includes(key)) {
           const check = document.getElementById('include_' + key);
           if (check && check.checked) total += sectionState[key].picked.length * (engBMarksMap[key] || 5);
         }
@@ -1064,7 +1227,7 @@
       }
 
       const config = { duration: document.getElementById('paperDuration').value, sections: sectionState, marksMap: engBMarksMap };
-      ['mcqs', 'verb', 'underline', 'short', 'long', 'paragraph', 'rtc', 'theorem'].forEach(s => {
+      ['mcqs', 'verb', 'underline', 'short', 'long', 'paragraph', 'rtc', 'theorem', 'prose', 'poem'].forEach(s => {
         const includeEl = document.getElementById('include' + s.charAt(0).toUpperCase() + s.slice(1));
         if (includeEl) {
           const countVal = document.getElementById(s + 'Count') ? parseInt(document.getElementById(s + 'Count').value) || 0 : 0;
@@ -1117,13 +1280,313 @@
 
     document.getElementById('logoUrlInput').addEventListener('input', (e) => { if (e.target.value) { document.getElementById('logoPreviewImg').src = e.target.value; document.getElementById('logoPreviewImg').style.display = 'block'; localStorage.setItem('paperify_logo', e.target.value); } });
     document.getElementById('logoClearBtn').addEventListener('click', () => { document.getElementById('logoPreviewImg').style.display = 'none'; document.getElementById('logoUrlInput').value = ''; localStorage.removeItem('paperify_logo'); });
-    document.getElementById('logoFileInput').addEventListener('change', (e) => { if (e.target.files && e.target.files[0]) { const reader = new FileReader(); reader.onload = (event) => { document.getElementById('logoPreviewImg').src = event.target.result; document.getElementById('logoPreviewImg').style.display = 'block'; localStorage.setItem('paperify_logo', event.target.result); }; reader.readAsDataURL(e.target.files[0]); } });
+    document.getElementById('logoFileInput').addEventListener('change', (e) => { 
+      if (e.target.files && e.target.files[0]) { 
+        const reader = new FileReader(); 
+        reader.onload = (event) => { 
+          document.getElementById('logoPreviewImg').src = event.target.result; 
+          document.getElementById('logoPreviewImg').style.display = 'block'; 
+          localStorage.setItem('paperify_logo', event.target.result); 
+        }; 
+        reader.readAsDataURL(e.target.files[0]); 
+      } 
+    });
+    document.querySelector('label[for=\"logoFileInput\"]')?.addEventListener('click', () => {
+      const fileInput = document.getElementById('logoFileInput');
+      fileInput.removeAttribute('capture');
+      fileInput.click();
+    });
 
     window.onload = () => {
       const saved = localStorage.getItem('paperify_logo');
       if (saved) { document.getElementById('logoPreviewImg').src = saved; document.getElementById('logoPreviewImg').style.display = 'block'; }
       buildPools();
     };
+
+    // Custom Question Functions
+    let voiceRecognition = null;
+    let translationDebounce = null;
+    let lastAutoTranslationSource = '';
+
+    function startVoiceInput(targetId, langCode) {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert('Voice typing is not supported on this browser.');
+        return;
+      }
+
+      const target = document.getElementById(targetId);
+      if (!target) return;
+
+      if (voiceRecognition) {
+        try { voiceRecognition.stop(); } catch (e) {}
+      }
+
+      voiceRecognition = new SpeechRecognition();
+      voiceRecognition.lang = langCode || 'en-US';
+      voiceRecognition.interimResults = false;
+      voiceRecognition.maxAlternatives = 1;
+      voiceRecognition.onresult = (event) => {
+        const transcript = event.results?.[0]?.[0]?.transcript || '';
+        target.value = `${target.value} ${transcript}`.trim();
+        if (targetId === 'customQuestionEn') {
+          triggerAutoUrduTranslate();
+        }
+      };
+      voiceRecognition.onerror = (event) => {
+        const code = event?.error || 'unknown';
+        if (code === 'not-allowed' || code === 'service-not-allowed') {
+          alert('Microphone permission is blocked. Allow mic access in browser settings.');
+          return;
+        }
+        if (code === 'no-speech') {
+          alert('No voice detected. Please speak clearly and try again.');
+          return;
+        }
+        if (code === 'audio-capture') {
+          alert('No microphone found on this device.');
+          return;
+        }
+        alert('Voice input failed. Please try again.');
+      };
+      voiceRecognition.start();
+    }
+
+    function transliterateEnglishToUrdu(text) {
+      if (!text) return '';
+      const wordMap = {
+        'what': 'کیا', 'is': 'ہے', 'the': 'یہ', 'how': 'کیسے', 'why': 'کیوں',
+        'define': 'تعریف کریں', 'explain': 'وضاحت کریں', 'write': 'لکھیں',
+        'question': 'سوال', 'chapter': 'باب', 'class': 'کلاس', 'english': 'انگریزی',
+        'urdu': 'اردو', 'web': 'ویب', 'developer': 'ڈیولپر'
+      };
+      const normalized = String(text).toLowerCase().trim();
+      const mapped = normalized.split(/\s+/).map(w => wordMap[w] || w).join(' ');
+      const charMap = {
+        a: 'ا', b: 'ب', c: 'ک', d: 'د', e: 'ے', f: 'ف', g: 'گ', h: 'ہ', i: 'ی', j: 'ج',
+        k: 'ک', l: 'ل', m: 'م', n: 'ن', o: 'و', p: 'پ', q: 'ق', r: 'ر', s: 'س', t: 'ت',
+        u: 'و', v: 'و', w: 'و', x: 'کس', y: 'ی', z: 'ز'
+      };
+      return mapped.replace(/[a-z]/g, ch => charMap[ch] || ch);
+    }
+
+    async function translateEnglishToUrdu(force = false) {
+      if (!force && !(chapterLanguageSupport.hasEnglish && chapterLanguageSupport.hasUrdu)) return;
+      const englishInput = document.getElementById('customQuestionEn');
+      const urduInput = document.getElementById('customQuestionUr');
+      if (!englishInput || !urduInput) return;
+
+      const text = englishInput.value.trim();
+      if (!text) return;
+      const isManualUrdu = urduInput.dataset.manualEdit === 'true';
+      if (!force && isManualUrdu) return;
+
+      const endpoints = [
+        'https://translate.argosopentech.com/translate',
+        'https://libretranslate.com/translate'
+      ];
+
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              q: text,
+              source: 'en',
+              target: 'ur',
+              format: 'text'
+            })
+          });
+          if (!response.ok) continue;
+          const data = await response.json();
+          const translated = (data?.translatedText || '').trim();
+          if (translated) {
+            urduInput.value = translated;
+            urduInput.dataset.manualEdit = 'false';
+            lastAutoTranslationSource = text;
+            return;
+          }
+        } catch (error) {
+          // try next endpoint
+        }
+      }
+
+      // Fallback when online translation is unavailable.
+      urduInput.value = transliterateEnglishToUrdu(text);
+      urduInput.dataset.manualEdit = 'false';
+      lastAutoTranslationSource = text;
+    }
+
+    function triggerAutoUrduTranslate() {
+      clearTimeout(translationDebounce);
+      translationDebounce = setTimeout(() => {
+        translateEnglishToUrdu(false);
+      }, 500);
+    }
+
+    function openAddQuestionModal(type) {
+      currentQuestionType = type;
+      currentPickerType = type;
+      closePicker();
+      document.getElementById('addQuestionTitle').textContent = `Add Custom ${type.charAt(0).toUpperCase() + type.slice(1)} Question`;
+      const englishInput = document.getElementById('customQuestionEn');
+      const urduInput = document.getElementById('customQuestionUr');
+      englishInput.value = '';
+      urduInput.value = '';
+      urduInput.dataset.manualEdit = 'false';
+      lastAutoTranslationSource = '';
+      englishInput.disabled = false;
+      englishInput.oninput = triggerAutoUrduTranslate;
+      urduInput.oninput = () => { urduInput.dataset.manualEdit = 'true'; };
+      
+      // Show MCQ options only for MCQs
+      const mcqDiv = document.getElementById('mcqOptionsDiv');
+      if (type === 'mcqs') {
+        mcqDiv.classList.remove('hidden');
+        document.getElementById('mcqOpt1').value = '';
+        document.getElementById('mcqOpt2').value = '';
+        document.getElementById('mcqOpt3').value = '';
+        document.getElementById('mcqOpt4').value = '';
+      } else {
+        mcqDiv.classList.add('hidden');
+      }
+      
+      // Adjust Urdu input based on chapter language
+      if (!chapterLanguageSupport.hasUrdu && chapterLanguageSupport.hasEnglish) {
+        urduInput.disabled = true;
+        urduInput.placeholder = 'Urdu not supported for this chapter';
+      } else if (chapterLanguageSupport.hasUrdu && !chapterLanguageSupport.hasEnglish) {
+        urduInput.disabled = false;
+        urduInput.placeholder = 'سوال اردو میں درج کریں (ضروری)';
+        englishInput.disabled = true;
+        englishInput.placeholder = 'English disabled for Urdu-only chapter';
+        setTimeout(() => urduInput.focus(), 50);
+      } else {
+        urduInput.disabled = false;
+        urduInput.placeholder = 'سوال اردو میں درج کریں';
+        englishInput.disabled = false;
+        englishInput.setAttribute('dir', 'ltr');
+        englishInput.setAttribute('lang', 'en');
+        englishInput.placeholder = 'Enter question in English';
+      }
+      if (!chapterLanguageSupport.hasUrdu && chapterLanguageSupport.hasEnglish) {
+        urduInput.removeAttribute('lang');
+        urduInput.setAttribute('dir', 'rtl');
+        englishInput.setAttribute('dir', 'ltr');
+        englishInput.setAttribute('lang', 'en');
+      }
+      if (chapterLanguageSupport.hasUrdu && !chapterLanguageSupport.hasEnglish) {
+        urduInput.placeholder = 'یہ چیپٹر صرف اردو کے لئے ہے';
+        urduInput.setAttribute('lang', 'ur');
+        urduInput.setAttribute('dir', 'rtl');
+      }
+      if (chapterLanguageSupport.hasEnglish && chapterLanguageSupport.hasUrdu) {
+        urduInput.placeholder = 'اردو سوال درج کریں';
+        urduInput.setAttribute('lang', 'ur');
+        urduInput.setAttribute('dir', 'rtl');
+      }
+
+      document.getElementById('addQuestionModal').classList.remove('hidden');
+      document.getElementById('addQuestionModal').classList.add('flex');
+    }
+
+    function closeAddQuestionModal() {
+      document.getElementById('addQuestionModal').classList.add('hidden');
+      document.getElementById('addQuestionModal').classList.remove('flex');
+    }
+
+    async function saveCustomQuestion() {
+      let questionEn = document.getElementById('customQuestionEn').value.trim();
+      let questionUr = document.getElementById('customQuestionUr').value.trim();
+      
+      // Validation
+      if (!questionEn && !questionUr) {
+        alert('Please enter a question in at least one language');
+        return;
+      }
+
+      if (chapterLanguageSupport.hasEnglish && chapterLanguageSupport.hasUrdu && questionEn && !questionUr) {
+        await translateEnglishToUrdu(true);
+        questionUr = document.getElementById('customQuestionUr').value.trim();
+      }
+
+      if (chapterLanguageSupport.hasEnglish && chapterLanguageSupport.hasUrdu) {
+        if (questionEn && !questionUr) questionUr = questionEn;
+        if (questionUr && !questionEn) questionEn = questionUr;
+      } else if (chapterLanguageSupport.hasEnglish && !chapterLanguageSupport.hasUrdu) {
+        if (!questionEn) {
+          alert('This chapter supports English only. Please enter English question.');
+          return;
+        }
+        questionUr = '';
+      } else if (chapterLanguageSupport.hasUrdu && !chapterLanguageSupport.hasEnglish) {
+        if (!questionUr) {
+          alert('This chapter supports Urdu only. Please enter Urdu question.');
+          return;
+        }
+        questionEn = '';
+      }
+      
+      // For MCQs, validate options
+      if (currentQuestionType === 'mcqs') {
+        const opt1 = document.getElementById('mcqOpt1').value.trim();
+        const opt2 = document.getElementById('mcqOpt2').value.trim();
+        const opt3 = document.getElementById('mcqOpt3').value.trim();
+        const opt4 = document.getElementById('mcqOpt4').value.trim();
+        
+        if (!opt1 || !opt2 || !opt3 || !opt4) {
+          alert('Please provide all 4 MCQ options');
+          return;
+        }
+      }
+      
+      // Prepare question object
+      const newQuestion = {
+        en: questionEn,
+        ur: questionUr,
+        key: Math.random()
+      };
+      
+      if (currentQuestionType === 'mcqs') {
+        const mcqOptions = [
+          document.getElementById('mcqOpt1').value.trim(),
+          document.getElementById('mcqOpt2').value.trim(),
+          document.getElementById('mcqOpt3').value.trim(),
+          document.getElementById('mcqOpt4').value.trim()
+        ];
+        newQuestion.options = [...mcqOptions];
+        newQuestion.options_ur = (chapterLanguageSupport.hasEnglish && chapterLanguageSupport.hasUrdu) ? [...mcqOptions] : [];
+      }
+      
+      // Save to backend
+      try {
+        const response = await fetch('/api/custom-question', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            board,
+            className,
+            selections: selectionsParam,
+            questionType: currentQuestionType,
+            question: newQuestion
+          })
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+          // Add to local pool
+          pools[currentQuestionType].push(newQuestion);
+          alert('Question added successfully!');
+          closeAddQuestionModal();
+        } else {
+          alert('Error saving question: ' + (result.error || 'Unknown error'));
+        }
+      } catch (error) {
+        console.error('Error saving question:', error);
+        alert('Failed to save question. Please try again.');
+      }
+    }
   </script>
 </body>
 
